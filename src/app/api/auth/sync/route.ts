@@ -1,11 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
 
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  { auth: { persistSession: false } }
-);
+function getAdmin() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } }
+  );
+}
 
 export async function GET(request: Request) {
   try {
@@ -14,6 +16,7 @@ export async function GET(request: Request) {
     if (!uid) {
       return NextResponse.json({ error: "Missing uid" }, { status: 400 });
     }
+    const supabaseAdmin = getAdmin();
     const { data } = await supabaseAdmin
       .from("users")
       .select("*")
@@ -35,6 +38,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Missing uid or email" }, { status: 400 });
     }
 
+    const supabaseAdmin = getAdmin();
     const { data: existingUsers } = await supabaseAdmin
       .from("users")
       .select("id")

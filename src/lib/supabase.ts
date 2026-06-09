@@ -1,8 +1,24 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+let _client: SupabaseClient | null = null;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  auth: { persistSession: false },
+function getClient(): SupabaseClient {
+  if (!_client) {
+    _client = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      { auth: { persistSession: false } }
+    );
+  }
+  return _client;
+}
+
+// Lazy proxy — createClient() not called until first property access.
+// Avoids "supabaseUrl is required" errors during Vercel build.
+export const supabase = new Proxy({} as SupabaseClient, {
+  get(_, prop) {
+    const c = getClient();
+    const v = c[prop as keyof SupabaseClient];
+    return typeof v === "function" ? v.bind(c) : v;
+  },
 });
