@@ -17,7 +17,7 @@ interface AboutData {
 
 const DEFAULTS: AboutData = {
   title: "Built on Trust. Powered by <span class=\"text-accent\">Team Black Panther.</span>",
-  description: "DK Holidays is Coimbatore's trusted travel & transportation brand, founded by Mr. Dinesh Kumar. We've been moving families, companies, schools and wedding parties safely across South India — with a modern fleet, professional drivers, and a no-surprises booking experience.",
+  description: "DK Holidays is the best travel agency in Coimbatore, founded by Mr. Dinesh Kumar. We offer tours and travels, tourist bus rental, holiday packages, and transportation services across Tamil Nadu and South India. With a modern fleet, professional drivers, and a no-surprises booking experience, we are the most trusted travel company in Coimbatore.",
   mission_title: "Our Mission",
   mission_desc: "Safe, comfortable, affordable travel — every trip.",
   vision_title: "Our Vision",
@@ -48,7 +48,7 @@ export function AboutSection() {
     <section className="py-20" id="about">
       <div className="container-custom grid gap-12 lg:grid-cols-2 items-center">
         <div>
-          <span className="inline-block text-sm font-bold text-accent mb-3">About Us</span>
+          <span className="inline-block text-sm font-bold text-accent mb-3">About DK Holidays Coimbatore</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-primary mb-4 leading-tight" dangerouslySetInnerHTML={{ __html: data.title }} />
           <p className="text-muted leading-relaxed mb-4">{data.description}</p>
           <div className="space-y-4 mb-8">

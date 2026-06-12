@@ -55,6 +55,7 @@ CREATE TABLE IF NOT EXISTS site_settings (
   contact_hero_subtitle TEXT DEFAULT 'We would love to hear from you.',
   packages_hero_title TEXT DEFAULT 'Curated Tour<br/>Packages',
   packages_hero_subtitle TEXT DEFAULT 'Handpicked travel experiences designed for every kind of traveler.',
+  favicon_url TEXT DEFAULT '',
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
@@ -213,6 +214,10 @@ CREATE POLICY "Anyone can delete packages" ON packages FOR DELETE USING (true);
 INSERT INTO site_settings (company_name, phone, whatsapp, email, address)
 VALUES ('DK Holidays', '+919944890203', '919944890203', 'info@dkholidays.in', 'Coimbatore, Tamil Nadu, India')
 ON CONFLICT DO NOTHING;
+
+-- 5. Add columns for existing databases (safe to re-run)
+-- ============================================
+ALTER TABLE site_settings ADD COLUMN IF NOT EXISTS favicon_url TEXT DEFAULT '';
 
 -- ============================================
 -- ✅ DONE — SQL PART COMPLETE

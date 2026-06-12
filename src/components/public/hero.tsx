@@ -11,8 +11,8 @@ export function Hero() {
     hero_image: string;
     hero_stats: { num: string; label: string }[];
   }>({
-    hero_title: "Reliable Travel Services<br/>For Every Journey",
-    hero_subtitle: "Tourist buses, corporate transport, airport pickups, family trips and wedding transportation — booked in minutes over a simple call or WhatsApp.",
+    hero_title: "Best Travels in Coimbatore —<br/>DK Holidays",
+    hero_subtitle: "DK Holidays is the best travel agency in Coimbatore offering tours and travels, tourist bus rental, holiday packages, corporate transport, airport pickup, family tours & wedding transportation. Book in minutes over a call or WhatsApp.",
     hero_image: "/images/hero-bg.jpg",
     hero_stats: [],
   });
@@ -52,7 +52,7 @@ export function Hero() {
         <div className="max-w-3xl">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold text-accent mb-6">
             <MapPin size={14} />
-            Coimbatore&apos;s Trusted Travel Brand
+            DK Holidays Coimbatore — Trusted Travel Agency
           </span>
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6"

@@ -6,8 +6,16 @@ import { formatDate, truncate } from "@/lib/utils";
 import { Calendar, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Read travel tips, destination guides and updates from DK Holidays, Coimbatore's trusted travel company.",
+  title: "Travel Blog – DK Holidays Coimbatore | Tour Tips & Guides",
+  description: "Read travel tips, destination guides and holiday ideas from DK Holidays Coimbatore — the best travel agency and tour operator in Tamil Nadu.",
+  keywords: [
+    "DK Holidays Coimbatore",
+    "travel blog coimbatore",
+    "holiday packages coimbatore",
+    "tour packages from coimbatore",
+    "DK Holidays Travels",
+    "tours and travels in coimbatore",
+  ],
 };
 
 export const revalidate = 3600;

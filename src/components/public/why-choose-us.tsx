@@ -16,7 +16,7 @@ const DEFAULT_ITEMS = [
 ];
 
 export function WhyChooseUs() {
-  const [heading, setHeading] = useState("Travel with People Who Care");
+  const [heading, setHeading] = useState("Why DK Holidays — Best Travel Agency in Coimbatore");
   const [items, setItems] = useState(DEFAULT_ITEMS);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export function WhyChooseUs() {
     <section className="py-20" id="why-choose-us">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <span className="inline-block text-sm font-bold text-accent mb-3">Why Choose Us</span>
+          <span className="inline-block text-sm font-bold text-accent mb-3">Tours and Travels in Coimbatore — Why Choose Us</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-primary mb-4">{heading}</h2>
         </div>
 

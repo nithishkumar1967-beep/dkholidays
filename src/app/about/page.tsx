@@ -21,12 +21,12 @@ interface PageData {
 
 const DEFAULTS: PageData = {
   hero_title: "Built on Trust. Powered by <span class=\"text-accent\">Team Black Panther.</span>",
-  hero_subtitle: "Coimbatore's trusted travel & transportation partner since 2016.",
+  hero_subtitle: "DK Holidays Coimbatore — trusted travel agency, tour operator and transportation partner since 2016. Best travels in Coimbatore for tours, bus rental and holiday packages.",
   story_heading: "Our Story",
   story_paragraphs: [
     "DK Holidays was founded by Mr. Dinesh Kumar with a simple vision — to provide safe, comfortable, and reliable transportation services to the people of Coimbatore and beyond.",
     "What started as a small fleet has grown into one of Coimbatore's most trusted travel brands, with 50+ vehicles serving thousands of happy customers every year.",
-    "From corporate fleets to family vacations, school excursions to wedding parties, airport transfers to long-distance tours — we've moved people across South India with care, professionalism, and a smile.",
+    "From corporate fleets to family vacations, school excursions to wedding parties, airport transfers to long-distance tours — we've moved people across South India with care, professionalism, and a smile. As a leading tour operator in Coimbatore, we offer customized tour packages, holiday packages, and travel services across Tamil Nadu and beyond.",
   ],
   image: "/images/about-img.jpg",
   stats: [
@@ -73,7 +73,7 @@ export default function AboutPage() {
     <PublicLayout>
       <section className="bg-primary py-20">
         <div className="container-custom text-center">
-          <span className="inline-block text-sm font-bold text-accent mb-3">About Us</span>
+          <span className="inline-block text-sm font-bold text-accent mb-3">Best Travel Agency in Coimbatore</span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 leading-tight" dangerouslySetInnerHTML={{ __html: data.hero_title }} />
           <p className="text-white/70 max-w-2xl mx-auto">{data.hero_subtitle}</p>
         </div>

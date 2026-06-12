@@ -21,7 +21,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-white/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-white/95 backdrop-blur-md safe-top">
       <div className="container-custom flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-sm font-extrabold text-white">
@@ -53,22 +53,22 @@ export function Header() {
         <div className="hidden md:flex items-center gap-2">
           <a
             href="tel:+919944890203"
-            className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-xs font-bold text-white transition-all hover:bg-accent-light"
+            className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2.5 text-xs font-bold text-white transition-all hover:bg-accent-light min-h-[40px]"
           >
-            <Phone size={14} /> Call Now
+            <Phone size={15} /> Call Now
           </a>
           <a
             href="https://wa.me/919944890203?text=Hi%20DK%20Holidays%2C%20I%27d%20like%20to%20book%20a%20trip."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-whatsapp px-4 py-2 text-xs font-bold text-white transition-all hover:bg-whatsapp-dark"
+            className="inline-flex items-center gap-1.5 rounded-full bg-whatsapp px-4 py-2.5 text-xs font-bold text-white transition-all hover:bg-whatsapp-dark min-h-[40px]"
           >
-            <MessageCircle size={14} /> WhatsApp
+            <MessageCircle size={15} /> WhatsApp
           </a>
         </div>
 
         <button
-          className="md:hidden p-2 text-primary"
+          className="md:hidden p-3 text-primary min-w-[48px] min-h-[48px] flex items-center justify-center"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -93,11 +93,11 @@ export function Header() {
               </Link>
             ))}
             <div className="flex gap-2 pt-2 border-t border-border">
-              <a href="tel:+919944890203" className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-accent px-4 py-2.5 text-xs font-bold text-white">
-                <Phone size={14} /> Call Now
+              <a href="tel:+919944890203" className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-accent px-4 py-3 text-xs font-bold text-white min-h-[44px]">
+                <Phone size={16} /> Call Now
               </a>
-              <a href="https://wa.me/919944890203" target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-whatsapp px-4 py-2.5 text-xs font-bold text-white">
-                <MessageCircle size={14} /> WhatsApp
+              <a href="https://wa.me/919944890203" target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-whatsapp px-4 py-3 text-xs font-bold text-white min-h-[44px]">
+                <MessageCircle size={16} /> WhatsApp
               </a>
             </div>
           </div>

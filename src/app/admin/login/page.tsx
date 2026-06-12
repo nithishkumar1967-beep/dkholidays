@@ -36,12 +36,12 @@ export default function AdminLoginPage() {
         });
         const result = await res.json();
         if (!res.ok || result.error) {
-          toast.error("Login failed. Run this SQL in Supabase SQL Editor:\n\nINSERT INTO users (id, email, role) VALUES ('" + fbUser.uid + "', '" + fbUser.email + "', 'super_admin');");
+          toast.error("Login failed. Please contact the administrator.", { duration: 5000 });
           return;
         }
         adminUser = await checkAdmin(fbUser.uid);
         if (!adminUser) {
-          toast.error("Access denied. Admin account not found.");
+          toast.error("Login failed. Please contact the administrator.", { duration: 5000 });
           return;
         }
       }

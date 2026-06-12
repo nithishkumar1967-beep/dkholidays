@@ -19,12 +19,14 @@ export default function AdminSettingsPage() {
     address: "Coimbatore, Tamil Nadu, India",
     hero_title: "Reliable Travel Services<br/>For Every Journey",
     hero_subtitle: "Tourist buses, corporate transport, airport pickups, family trips and wedding transportation — booked in minutes.",
-    meta_title: "DK Holidays – Best Travel & Tourist Bus Rental in Coimbatore",
-    meta_description: "Coimbatore's #1 travel & tourist bus rental company.",
+    meta_title: "DK Holidays – Best Travels in Coimbatore | Tours & Travel Agency",
+    meta_description: "DK Holidays is the best travel agency in Coimbatore offering tours and travels, tourist bus rental, holiday packages, family tours, corporate transport, airport pickup & wedding transport. Call +91 9944890203.",
+    favicon_url: "",
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [heroFile, setHeroFile] = useState<File | null>(null);
+  const [faviconFile, setFaviconFile] = useState<File | null>(null);
 
   useEffect(() => {
     getSiteSettings().then((data) => {
@@ -40,6 +42,7 @@ export default function AdminSettingsPage() {
           hero_subtitle: data.hero_subtitle || form.hero_subtitle,
           meta_title: data.meta_title || form.meta_title,
           meta_description: data.meta_description || form.meta_description,
+          favicon_url: data.favicon_url || "",
         });
       }
       setLoading(false);
@@ -50,6 +53,10 @@ export default function AdminSettingsPage() {
     setSaving(true);
     if (heroFile) {
       await uploadImage("hero-images", heroFile, "hero");
+    }
+    if (faviconFile) {
+      const url = await uploadImage("company-assets", faviconFile, "favicon");
+      if (url) form.favicon_url = url;
     }
     if (settings?.id) {
       await updateSiteSettings(settings.id, form);
@@ -86,6 +93,22 @@ export default function AdminSettingsPage() {
           <div>
             <label>Hero Background Image</label>
             <input type="file" accept="image/*" onChange={(e) => setHeroFile(e.target.files?.[0] || null)} className="w-full text-sm" />
+          </div>
+        </div>
+      </Card>
+
+      <Card className="p-6 mb-6">
+        <h2 className="font-bold text-primary mb-4">Favicon</h2>
+        <div className="space-y-4">
+          <div>
+            <label>Favicon Image (ICO, PNG, or SVG)</label>
+            <input type="file" accept="image/*" onChange={(e) => setFaviconFile(e.target.files?.[0] || null)} className="w-full text-sm" />
+            {form.favicon_url && (
+              <div className="mt-2 flex items-center gap-2">
+                <img src={form.favicon_url} alt="Favicon preview" className="h-8 w-8 rounded border" />
+                <span className="text-xs text-muted">{form.favicon_url}</span>
+              </div>
+            )}
           </div>
         </div>
       </Card>

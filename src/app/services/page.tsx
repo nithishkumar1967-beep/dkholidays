@@ -12,8 +12,8 @@ const ICON_MAP: Record<string, typeof Bus> = {
 
 export default function ServicesPage() {
   const [services, setServices] = useState<Service[]>([]);
-  const [heroTitle, setHeroTitle] = useState("Travel Solutions for<br/>Every Occasion");
-  const [heroSubtitle, setHeroSubtitle] = useState("From corporate fleets to family vacations — we have got the right ride for every journey.");
+  const [heroTitle, setHeroTitle] = useState("Travel Services in<br/>Coimbatore");
+  const [heroSubtitle, setHeroSubtitle] = useState("DK Holidays is the best travel agency in Coimbatore offering tours and travels, tourist bus rental, corporate transport, airport pickup, family tours, school trips, wedding transport & holiday packages.");
 
   useEffect(() => {
     getActiveServices().then(setServices);
@@ -29,7 +29,7 @@ export default function ServicesPage() {
     <PublicLayout>
       <section className="bg-primary py-20">
         <div className="container-custom text-center">
-          <span className="inline-block text-sm font-bold text-accent mb-3">Our Services</span>
+          <span className="inline-block text-sm font-bold text-accent mb-3">Travel Agency Coimbatore — Our Services</span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 leading-tight" dangerouslySetInnerHTML={{ __html: heroTitle }} />
           <p className="text-white/70 max-w-2xl mx-auto">{heroSubtitle}</p>
         </div>

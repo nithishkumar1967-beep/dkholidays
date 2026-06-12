@@ -48,6 +48,7 @@ export interface SiteSettings {
   contact_hero_subtitle: string;
   packages_hero_title: string;
   packages_hero_subtitle: string;
+  favicon_url: string;
   updated_at: string;
 }
 

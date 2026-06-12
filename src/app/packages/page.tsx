@@ -9,8 +9,8 @@ import type { Package } from "@/lib/types";
 
 export default function PackagesPage() {
   const [packages, setPackages] = useState<Package[]>([]);
-  const [heroTitle, setHeroTitle] = useState("Curated Tour<br/>Packages");
-  const [heroSubtitle, setHeroSubtitle] = useState("Handpicked travel experiences designed for every kind of traveler.");
+  const [heroTitle, setHeroTitle] = useState("DK Holidays Tour<br/>Packages");
+  const [heroSubtitle, setHeroSubtitle] = useState("Best tour packages from Coimbatore — Ooty, Kodaikanal, Kerala, Munnar and South India tour packages. Affordable holiday packages for family tours, honeymoon & group tours by DK Holidays Coimbatore.");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function PackagesPage() {
     <PublicLayout>
       <section className="bg-primary py-20">
         <div className="container-custom text-center">
-          <span className="inline-block text-sm font-bold text-accent mb-3">Tour Packages</span>
+          <span className="inline-block text-sm font-bold text-accent mb-3">Holiday Packages Coimbatore</span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 leading-tight" dangerouslySetInnerHTML={{ __html: heroTitle }} />
           <p className="text-white/70 max-w-2xl mx-auto">{heroSubtitle}</p>
         </div>

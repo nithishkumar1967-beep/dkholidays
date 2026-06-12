@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { Trash2, Shield, ShieldAlert, ShieldCheck } from "lucide-react";
 import toast from "react-hot-toast";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { getUsers, updateUserRole, deleteUser } from "@/lib/supabase-admin";
@@ -36,7 +35,21 @@ export default function AdminUsersPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Delete this user?")) return;
+    if (id === currentUser?.id) {
+      toast.error("You cannot delete your own account.");
+      return;
+    }
+    const target = users.find((u) => u.id === id);
+    if (target?.role === "super_admin") {
+      const otherSuperAdmins = users.filter(
+        (u) => u.role === "super_admin" && u.id !== id
+      );
+      if (otherSuperAdmins.length === 0) {
+        toast.error("Cannot delete the last super admin.");
+        return;
+      }
+    }
+    if (!confirm("Delete this user? This action cannot be undone.")) return;
     await deleteUser(id);
     toast.success("User deleted.");
     loadUsers();
@@ -50,7 +63,7 @@ export default function AdminUsersPage() {
     <div>
       <div className="mb-6">
         <h1 className="text-2xl font-extrabold text-primary">Admin Users</h1>
-        <p className="text-sm text-muted">Manage admin accounts and roles.</p>
+        <p className="text-sm text-muted">Manage admin accounts and roles. First user is super admin.</p>
       </div>
 
       {!isSuperAdmin && (
@@ -91,10 +104,17 @@ export default function AdminUsersPage() {
                     <option value="admin">Admin</option>
                     <option value="editor">Editor</option>
                   </select>
-                  <button onClick={() => handleDelete(u.id)} className="p-2 rounded-lg hover:bg-red-100 text-danger" title="Delete User">
+                  <button
+                    onClick={() => handleDelete(u.id)}
+                    className="p-2 rounded-lg hover:bg-red-100 text-danger"
+                    title="Delete User"
+                  >
                     <Trash2 size={16} />
                   </button>
                 </div>
+              )}
+              {isSuperAdmin && currentUser?.id === u.id && (
+                <span className="text-xs text-muted italic">(you)</span>
               )}
             </div>
           </Card>
