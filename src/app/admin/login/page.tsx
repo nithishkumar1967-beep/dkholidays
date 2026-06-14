@@ -46,7 +46,7 @@ export default function AdminLoginPage() {
         }
       }
       toast.success("Welcome back!");
-      router.push("/admin");
+      setTimeout(() => { window.location.href = "/admin"; }, 500);
     } catch (err: unknown) {
       const error = err as { code?: string; message?: string };
       console.error("Login error:", error);
