@@ -50,14 +50,23 @@ export const metadata: Metadata = {
     "south india tour packages",
     "weekend getaway packages coimbatore",
   ],
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://dkholidays.in"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://dd-sepia-nine.vercel.app"),
   openGraph: {
     type: "website",
     locale: "en_IN",
     siteName: "DK Holidays",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "DK Holidays – Best Travels in Coimbatore",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/og-image.svg"],
   },
   robots: {
     index: true,
