@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     siteName: "DK Holidays",
     images: [
       {
-        url: "/og-image.svg",
+        url: "/og",
         width: 1200,
         height: 630,
         alt: "DK Holidays – Best Travels in Coimbatore",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-image.svg"],
+    images: ["/og"],
   },
   robots: {
     index: true,
