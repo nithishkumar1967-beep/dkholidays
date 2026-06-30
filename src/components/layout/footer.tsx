@@ -116,10 +116,6 @@ export function Footer() {
             <Link href="/admin/login" className="hover:text-accent transition-colors">
               Admin Panel
             </Link>
-            <span>·</span>
-            <Link href="/sitemap.xml" className="hover:text-accent transition-colors">
-              Sitemap
-            </Link>
           </div>
           <span>&copy; 2026 DK Holidays. All rights reserved. Coimbatore, Tamil Nadu.</span>
         </div>
